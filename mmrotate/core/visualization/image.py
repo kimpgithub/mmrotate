@@ -61,7 +61,7 @@ def draw_rbboxes(ax, bboxes, color='g', alpha=0.8, thickness=2):
         p2 = (xc + wx - hx, yc + wy - hy)
         p3 = (xc + wx + hx, yc + wy + hy)
         p4 = (xc - wx + hx, yc - wy + hy)
-        poly = np.int0(np.array([p1, p2, p3, p4]))
+        poly = np.array([p1, p2, p3, p4], dtype=np.int64)  # 또는 np.int8
         polygons.append(Polygon(poly))
     p = PatchCollection(
         polygons,
